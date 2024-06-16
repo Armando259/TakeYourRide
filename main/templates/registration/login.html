@@ -1,0 +1,31 @@
+{% extends "landing.html" %}
+
+{% block content %}
+<br/>
+
+<div class="shadow p-5 mb-6 bg-light rounded" style="margin: 0 auto; width: 50%;">
+    <div style="text-align: center;">
+        <h1>Prijava</h1>
+    </div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Ime: </label>
+            <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Lozinka: </label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-primary">Prijava</button>
+        </div>
+    </form>
+</div>
+
+<div class="text-center mt-4">
+    <p>Ukoliko nemate račun, <a href="{% url 'main:register' %}">Registrirajte se</a>.</p>
+</div>
+
+<br/>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "landing.html" %}
+{% load static %}
+
+{% block title %}O nama - Take Your Ride{% endblock %}
+
+{% block content %}
+<main class="container my-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4" >O nama</h1>
+        <p class="lead">Saznajte više o našoj misiji, vrijednostima i timu.</p>
+        <hr class="my-4">
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <h2 style="color: blue; ">Naša Misija</h2>
+            <p>Naša misija je pružiti najbolju moguću uslugu rentanja vozila, s naglaskom na zadovoljstvo korisnika, pouzdanost i povjerenje. Trudimo se osigurati da naši klijenti dobiju vrhunsko iskustvo, od trenutka rezervacije do vraćanja vozila.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'media/pozadina3.webp' %}" class="img-fluid rounded" alt="Naša Misija">
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-6 order-md-2">
+            <h2 style="color: blue; " >Naše Vrijednosti</h2>
+            <ul class="list-unstyled">
+                <li><strong>Korisnička usluga:</strong> Zadovoljstvo naših korisnika je naš glavni prioritet.</li>
+                <li><strong>Pouzdanost:</strong> Sva naša vozila su redovno servisirana i održavana.</li>
+                <li><strong>Transparentnost:</strong> Jasne cijene bez skrivenih troškova.</li>
+                <li><strong>Inovativnost:</strong> Konstantno radimo na poboljšanju naših usluga i ponude.</li>
+            </ul>
+        </div>
+        <div class="col-md-6 order-md-1">
+            <img src="{% static 'media/pozadina.webp' %}" class="img-fluid rounded" alt="Naše Vrijednosti">
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <h2 style="color: blue; ">Naš Tim</h2>
+            <p>Naš tim čine iskusni profesionalci koji su uvijek spremni pomoći vam u odabiru i rezervaciji vozila. Kontaktirajte nas za bilo kakva pitanja ili savjete.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'media/pozadina2.webp' %}" class="img-fluid rounded" alt="Naš Tim">
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-12 text-center">
+            <h2 style="color: black; ">Kontakt</h2>
+            <p><strong>Email:</strong> kontakt@takeyourride.com</p>
+            <p><strong>Telefon:</strong> +385 1 2345 678</p>
+            <p><strong>Adresa:</strong> Ulica Primjera 1, 10000 Zagreb, Hrvatska</p>
+        </div>
+    </div>
+</main>
+{% endblock %}

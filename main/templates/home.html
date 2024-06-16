@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Your Ride - Početna</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'main:home' %}">Take Your Ride</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'main:home' %}">Početna</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'main:vehicles' %}">Vozila</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'main:about' %}">O nama</a>
+                    </li>
+                    {% if user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'main:add_vehicle' %}">Dodaj automobil</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'main:profile' %}">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'main:logout' %}">Odjava</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'main:login' %}">Prijava</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'main:register' %}">Registracija</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+
+    <div class="banner">
+        <div class="banner-img active" style="background-image: url('{% static 'media/pozadina.webp' %}')"></div>
+        <div class="banner-img" style="background-image: url('{% static 'media/pozadina2.webp' %}')"></div>
+        <div class="banner-img" style="background-image: url('{% static 'media/pozadina3.webp' %}')"></div>
+        <div class="banner-text">
+            <h1>Take Your Ride</h1>
+        </div>
+    </div>
+    <main class="container my-5">
+        <div class="text-center">
+            <h1 class="display-4">Dobrodošli na Take Your Ride!</h1>
+            <p class="lead">Uzmite ključeve svojih avantura - Rentajte s lakoćom!</p>
+            <hr class="my-4">
+            <p>Pretražite našu široku ponudu vozila i pronađite savršen automobil za vaša putovanja.</p>
+            <a href="{% url 'main:vehicles' %}" class="btn btn-primary btn-lg">Pogledaj Vozila</a>
+        </div>
+
+        <div class="services my-5">
+            <h2 class="text-center">Naše Usluge</h2>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'media/pozadina.webp' %}" class="card-img-top" alt="Usluga 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Brza Rezervacija</h5>
+                            <p class="card-text">Rezervišite vozilo u samo nekoliko klikova sa našom brzom i jednostavnom rezervacijom.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'media/pozadina2.webp' %}" class="card-img-top" alt="Usluga 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Pouzdana Vozila</h5>
+                            <p class="card-text">Sva naša vozila su redovno servisirana i održavana kako bi osigurala sigurnost i udobnost na putu.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'media/pozadina3.webp' %}" class="card-img-top" alt="Usluga 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Podrška 24/7</h5>
+                            <p class="card-text">Naš tim za podršku je dostupan 24/7 kako bi vam pomogao u slučaju bilo kakvih problema ili pitanja.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials my-5">
+            <h2 class="text-center">Šta naši korisnici kažu</h2>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">"Izvrsna usluga! Vozilo je bilo u odličnom stanju i proces rezervacije je bio vrlo jednostavan."</p>
+                            <p class="card-text text-end"><strong>- Marko P.</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">"Veoma sam zadovoljan uslugom i ljubaznošću osoblja. Sigurno ću ponovo koristiti njihove usluge."</p>
+                            <p class="card-text text-end"><strong>- Ana K.</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">"Odličan izbor vozila i vrlo povoljne cijene. Definitivno preporučujem!"</p>
+                            <p class="card-text text-end"><strong>- Ivan S.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact my-5">
+            <h2 class="text-center">Kontaktirajte Nas</h2>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>Naša Adresa</h5>
+                    <p>Ulica 123, 10000 Zagreb, Hrvatska</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Kontakt Informacije</h5>
+                    <p>Email: info@takeyourride.hr</p>
+                    <p>Telefon: +385 1 2345 678</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Web stranice Deni Koraca. Sva prava pridržana.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let currentIndex = 0;
+            const banners = document.querySelectorAll(".banner-img");
+            const totalBanners = banners.length;
+
+            function showNextBanner() {
+                banners[currentIndex].classList.remove("active");
+                currentIndex = (currentIndex + 1) % totalBanners;
+                banners[currentIndex].classList.add("active");
+            }
+
+            setInterval(showNextBanner, 5000); 
+        });
+    </script>
+</body>
+</html>
